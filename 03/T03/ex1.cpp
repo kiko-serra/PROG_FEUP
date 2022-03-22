@@ -17,3 +17,4 @@ int main()
     }
     return 0;
 }
+// resposta {1,2},{3,1},{11,6}
