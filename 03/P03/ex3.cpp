@@ -21,22 +21,21 @@ void merge_arrays(const int a[], int na, const int b[], int nb, int c[])
         aux[i] = a[i];
     for (int i = 0; i < nb; i++)
         aux[i + na] = b[i];
-    int min = INT_MAX, min_pos = 0;
+    int min, min_pos;
 
     for (int i = 0; i < na + nb; i++)
     {
         for (int j = 0; j < na + nb; j++)
         {
-            if (aux[i] < min)
+            if (!j || aux[j] < min)
             {
-                min = aux[i];
-                min_pos = i;
+                min = aux[j];
+                min_pos = j;
             }
         }
-        c[i]=aux[min_pos];
-        aux[min_pos]=INT_MAX;
+        c[i] = aux[min_pos];
+        aux[min_pos] = INT_MAX;
     }
-    
 }
 
 // Auxiliary function to print n elements of an array.
