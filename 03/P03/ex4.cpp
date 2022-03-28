@@ -23,7 +23,7 @@ int main()
 
         char rle[9 + 1] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         rleEncode("aaaaabbbbbbbbbbbcccd", rle);
-                    char rle[3 + 1] = {-1, -1, -1, -1};
+           char rle[3 + 1] = {-1, -1, -1, -1};
                     rleEncode("xxxxxxxxxxxxxxxxxxxx", rle);
                     cout << rle << endl;
                     */
@@ -55,4 +55,31 @@ int length(const char str[])
     while (str[l] != '\0')
         l++;
     return l;
+}
+
+void rleEncode(const char str[], char rle[]){
+    char current;
+    int p=0, i=0, sum=0, temp=0;
+    while(str[i]!='\0'){
+        current=str[i];
+        sum=0;
+        while(str[i]!='\0' && str[i]==current){
+            sum++;
+            i++;
+        }
+        if(sum>=10){
+            while(sum>=10){
+                sum-=10;
+                temp++;
+            }
+            rle[p++]=temp+48;
+            rle[p++]=sum+48;
+            rle[p++]=current;
+    }else{
+            rle[p]=sum+48;
+            rle[p+1]=current;
+            p+=2;
+    }
+    }
+    rle[p]='\0';
 }
