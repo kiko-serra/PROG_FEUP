@@ -10,4 +10,4 @@ int main()
         delete[] b;
     return 0;
 }
-//nenhum valor de i da memory leak
+// when i =2 a[2]=2 b[2]=1 --b[2]=0. since --b[2] = 0 thw cicle will never enter the if

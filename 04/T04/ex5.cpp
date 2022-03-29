@@ -1,9 +1,14 @@
+#include <iostream>
+using namespace std;
 struct node
 {
     int value;
     node *next;
 };
-node *build(int value, node *next) { return new node{value, next}; }
+node *build(int value, node *next)
+{
+    return new node{value, next};
+}
 void destroy(node *n)
 {
     while (n != nullptr)
