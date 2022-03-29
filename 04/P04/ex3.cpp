@@ -21,6 +21,12 @@ dlnode *insert(dlnode *dln, int k, int v)
     aux->prev = nullptr;
     aux->next = nullptr;
     int i = 0;
+    if (!k)
+    {
+        dlnode* new_node={v, nullptr, dln};
+        dln->prev=new_node;
+    }
+    
     while (curr != nullptr && i < k)
     {
         prev = curr;
@@ -29,12 +35,6 @@ dlnode *insert(dlnode *dln, int k, int v)
     }
     if (curr != nullptr)
     {
-        if (!i)
-        {
-            aux->next = dln->next;
-            aux->prev = nullptr;
-            dln = aux;
-        }
         if (i == k)
         {
             /*
@@ -44,10 +44,8 @@ dlnode *insert(dlnode *dln, int k, int v)
                 aux->prev = curr;
                 curr->next = aux;
             }*/
-            prev->next = aux;
-            curr->prev = aux;
-            aux->prev = prev;
-            aux->next = curr;
+            prev->next =  new_node{v, prev, curr};
+            curr->prev = prev->next;
         }
     }
     else if(i==k){
