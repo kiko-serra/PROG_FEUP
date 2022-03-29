@@ -8,8 +8,8 @@ int main()
     for (int *p : parr)
     {
         if (p != 0)
-            ++*p;
+            ++*p; // se o apontador nao for 0 aumenta em 1 unidade o valor para o qual o apontador aponta
     }
-    cout << a << b << c;
+    cout << a << b << c << endl;
     return 0;
 }
