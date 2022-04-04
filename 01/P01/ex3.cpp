@@ -22,10 +22,8 @@ bool is_prime(int n) {
       if (n % i != 0) {
         i++;
         continue; 
-      } 
-      return false;
-    }
-    return true; 
+      }return false;
+    }return true; 
 }
 
 int primes(int max){
@@ -33,6 +31,5 @@ int primes(int max){
         if (is_prime(n)) {
         cout << n << "\n";
         }
-    } 
-    return 0;
+    }return 0;
 }

@@ -30,16 +30,20 @@ int main()
     return 0;
 }
 
-void advance(int delta, int &d, int &m, int &y){
+bool is_leap_year(int y);
+int days_in_month(int m, int y);
+void advance(int delta, int &d, int &m, int &y)
+{
     for (int i = delta; i > 0; i--){
         d++;
         if (days_in_month(m, y) == 31){
             if (d > 31){
                 d = 1;
                 m++;
-            }if (m > 12){
-                m = 0;
-                y++;
+                if (m > 12){
+                    m = 1;
+                    y++;
+                }
             }
         }if (days_in_month(m, y) == 30){
             if (d > 30){

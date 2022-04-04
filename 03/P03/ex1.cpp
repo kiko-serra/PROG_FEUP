@@ -13,28 +13,19 @@ int main()
     return 0;
 }
 
-unsigned long hstr_to_integer(const char hstr[])
-{
-    unsigned long res =0;
+unsigned long hstr_to_integer(const char hstr[]){
+    unsigned long res=0;
     int i=0;
-    while (hstr[i] != '\0')
-    {
+    while (hstr[i] != '\0'){
         char c = hstr[i];
         int v;
         if (c >= 'A' && c <= 'F')
-        {
             v = c - 'A' + 10;
-        }
         else if (c >= 'a' && c <= 'f')
-        {
             v = c - 'a' + 10;
-        }
         else if (c >= '0' && c <= '9')
-        {
             v = c - '0';
-        }
         res = res * 16 + v;
         i++;
-    }
-    return res;
+    }return res;
 }
