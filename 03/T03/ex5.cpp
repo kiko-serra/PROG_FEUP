@@ -12,6 +12,6 @@ int f(const char s1[], const char s2[])
 
 int main()
 {
-    cout << f("ABC", "AB") << ' ' << f("AB", "AB") << ' ' << f("ABC", "abc");
+    cout << f("ABC", "AB") << ' ' << f("AB", "AB") << ' ' << f("ABC", "abc") << endl;
     return 0;
 }
