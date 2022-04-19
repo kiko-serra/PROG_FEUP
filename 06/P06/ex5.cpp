@@ -23,15 +23,15 @@ void print(const smatrix &sm)
     cout << "]\n";
 }
 void sum(const smatrix &a, const smatrix &b, smatrix &r){
-    // if (!a.size()){
-    //     for (size_t i = 0; i < b.size(); i++)
-    //         r.push_back(b[i]);
-    //     return;
-    // }if (!b.size()){
-    //     for (size_t i = 0; i < a.size(); i++)
-    //         r.push_back(a[i]);
-    //     return;
-    // }
+    /* if (!a.size()){
+        for (size_t i = 0; i < b.size(); i++)
+             r.push_back(b[i]);
+        return;
+    }if (!b.size()){
+        for (size_t i = 0; i < a.size(); i++)
+            r.push_back(a[i]);
+        return;
+    } */
     for (size_t i = 0; i < b.size(); i++){
         bool found = false;
         for (size_t j = 0; j < a.size(); j++){
