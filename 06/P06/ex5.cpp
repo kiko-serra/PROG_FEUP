@@ -23,25 +23,59 @@ void print(const smatrix &sm)
     cout << "]\n";
 }
 void sum(const smatrix &a, const smatrix &b, smatrix &r){
-    /* if (!a.size()){
-        for (size_t i = 0; i < b.size(); i++)
-             r.push_back(b[i]);
-        return;
-    }if (!b.size()){
-        for (size_t i = 0; i < a.size(); i++)
-            r.push_back(a[i]);
-        return;
-    } */
-    for (size_t i = 0; i < b.size(); i++){
-        bool found = false;
-        for (size_t j = 0; j < a.size(); j++){
-            if (a[j].row == b[i].row && a[j].col == b[i].col){
-                found = true;
-                r[j].row=a[j].row;
-                r[j].col=a[j].col;
-                r[j].value = a[j].value + b[i].value;
-            }
+    r.clear();
+    size_t i = 0, j = 0;
+    while (i < a.size() && j < b.size()){
+        if (a[i].row == b[j].row && a[i].col == b[j].col){
+            sm_entry e;
+            e.row = a[i].row;
+            e.col = a[i].col;
+            e.value = a[i].value + b[j].value;
+            if(e.value != 0) r.push_back(e);
+            i++;
+            j++;
+        }else if (a[i].row < b[j].row || (a[i].row == b[j].row && a[i].col < b[j].col)){
+            sm_entry e;
+            e.row = a[i].row;
+            e.col = a[i].col;
+            e.value = a[i].value;
+            if(e.value != 0) r.push_back(e);
+            i++;
+        }else{
+            sm_entry e;
+            e.row = b[j].row;
+            e.col = b[j].col;
+            e.value = b[j].value;
+            r.push_back(e);
+            j++;
         }
-        if (!found) r.push_back(b[i]);
     }
+    while (i < a.size()){
+        sm_entry e;
+        e.row = a[i].row;
+        e.col = a[i].col;
+        e.value = a[i].value;
+        r.push_back(e);
+        i++;
+    }
+    while (j < b.size()){
+        sm_entry e;
+        e.row = b[j].row;
+        e.col = b[j].col;
+        e.value = b[j].value;
+        r.push_back(e);
+        j++;
+    }
+}
+//sum of two sparse matrices
+
+int main(){
+    smatrix r;
+    sum({ {0, 0, 1}, {1, 0, 1} },{ {0, 3, 1}, {0, 50, 1} },r);
+    print(r);
+
+    smatrix t;
+    sum({ {0, 0, 1}, {0, 1, 2}, {5, 10, 20}, {99, 12, 32} },{ {0, 0, 1}, {0, 1, -2}, {10, 5, 20}, {99, 10, 30}, {99, 11, 31} },t);
+    print(t);  
+    return 0;
 }
