@@ -1,6 +1,14 @@
-string s = "Butterfly";
-for (char&amp; c : s)
-  if (c &gt;= 'a' &amp;&amp; c &lt;= 'l')
-    c = toupper(c);
-for (char c : s) cout &lt;&lt; c;
-cout &lt;&lt; '\n';
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+int main(){
+  string s = "Butterfly";
+  for (char &c : s)
+    if (c >= 'a' && c <= 'l')
+      c = toupper(c);
+  for (char c : s)
+    cout << c;
+  cout << endl;
+}
