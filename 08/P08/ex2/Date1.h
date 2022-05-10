@@ -23,9 +23,7 @@ class Date {
 };
 Date::Date():year(1), month(1), day(1) {}
 
-Date::Date(int year, int month, int day){
-    
-}
+Date::Date(int year, int month, int day):year(year), month(month), day(day) {}
 
 int Date::get_year() const {
   return year;
