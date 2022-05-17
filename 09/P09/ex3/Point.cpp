@@ -1,20 +1,26 @@
 #include "Point.h"
-#include<cmath>
+#include <cmath>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+Point::Point():x_(0),y_(0){}
 
 Point::Point(int x, int y): x_(x), y_(y){}
 
-int Point::x(){
+int Point::x() const{
     return x_;
 }
 
-int Point::y(){
+int Point::y() const{
     return y_;
 }
 
-void Point::show(){
+void Point::show() const{
     cout << "(" << x() << "," << y() << ")";
 }
 
-double Point::distance(Point p1, Point p2){
-    return sqrt(pow((p2.x()-p1.x()), 2) + pow((p2.y()-p1.y()), 2));
+double Point::distance(Point p1) const{
+    return sqrt(pow((p1.x()-x()), 2) + pow((p1.y()-y()), 2));
 }
