@@ -15,7 +15,6 @@ public:
     T1 get_first() const;
     T2 get_second() const;
     void show() const;
-    static bool is_less(const Pair<T1,T2>& a, const Pair<T1,T2>& b, const int& key);
 private:
     T1 first_;
     T2 second_;
@@ -57,8 +56,7 @@ void sort_by_second(vector<Pair<string,int>>& persons){
 
 void show(vector<Pair<string,int>> persons){
     cout << "{";
-    for(Pair<string,int> p : persons)
-    {
+    for(Pair<string,int> p : persons){
         p.show();
     }
     cout << "}";
