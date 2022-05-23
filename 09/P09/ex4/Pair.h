@@ -19,7 +19,7 @@ class Pair{
 };
 
 template<typename T1, typename T2>
-Pair<T1, T2>::Pair(const T1& first, const T2& second):first_(first), second_(second){}
+Pair<T1, T2>::Pair(const T1& first, const T2& second): first_(first), second_(second){}
 
 template<typename T1, typename T2>
 T1 Pair<T1, T2>::get_first() const{
@@ -32,13 +32,23 @@ T2 Pair<T1, T2>::get_second() const{
 }
 
 template<typename T1, typename T2>
-void Pair<T1,T2>::show() const{
-    cout << "{" << get_first() << "," << get_second() << "}" ;
+void Pair<T1, T2>::show() const{
+    cout << "(" << get_first() << "," << get_second() << ")";
 }
 
-void show(vector<Pair<typename T1, typename T2>>& v){
-    for(Pair::iterator it = v.begin(); it != v.end(); ++it){
-        it->show();
+void sort_by_first(vector<Pair<typename T1, typename T2>>& v){
+    sort(v.begin(), v.end(), [](const Pair<T1, T2>& p1, const Pair<T1, T2>& p2));
+}
+
+void sort_by_second(vector<Pair<typename T1, typename T2>>& v){
+    sort(v.begin(), v.end(), [](const Pair<T1, T2>& p1, const Pair<T1, T2>& p2));
+}
+
+void show(const vector<Pair<typename T1, typename T2>>& v){
+    cout << "{";
+    for(const Pair<T1, T2>& p: v){
+        p.show();
     }
+    cout << "}"<< endl;
 }
 #endif
