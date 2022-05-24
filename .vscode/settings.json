@@ -60,7 +60,8 @@
     "vector": "cpp",
     "*.tcc": "cpp",
     "hashtable": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "map": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
