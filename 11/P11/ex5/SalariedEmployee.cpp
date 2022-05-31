@@ -6,14 +6,10 @@
 using namespace std;
 
 SalariedEmployee::SalariedEmployee() 
-  : Employee(), salary_(0) {
-  // deliberately empty
-}
+  : Employee(), salary_(0) {}
 
 SalariedEmployee::SalariedEmployee(string name, double salary)
-  : Employee(name), salary_(salary) {
-  // deliberately empty
-}
+  : Employee(name), salary_(salary) {}
 
 double SalariedEmployee::get_salary() const {
   return salary_;
@@ -27,3 +23,8 @@ void SalariedEmployee::print_check() const {
   cout << get_name() <<':' << fixed << setprecision(2) 
        << "SE(" << salary_ << ")="  << get_net_pay();
 }
+
+void SalariedEmployee::calculate_net_pay() {
+  set_net_pay(salary_);
+}
+

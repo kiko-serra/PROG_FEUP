@@ -6,14 +6,10 @@
 using namespace std;
 
 Employee::Employee()
-  : name_("No name yet"), net_pay_(0) {
-  // deliberately empty
-}
+  : name_("No name yet"), net_pay_(0) {}
 
 Employee::Employee(string name)
-  : name_(name), net_pay_(0) {
-  // deliberately empty
-}
+  : name_(name), net_pay_(0) {}
 
 string Employee::get_name() const {
   return name_;

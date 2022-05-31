@@ -6,14 +6,10 @@
 using namespace std;
  
 HourlyEmployee::HourlyEmployee() 
-  : Employee(), wage_rate_(0), hours_(0) {
-  // deliberately empty
-}
+  : Employee(), wage_rate_(0), hours_(0) {}
  
 HourlyEmployee::HourlyEmployee(string name, double wage_rate, double hours)
-  : Employee(name), wage_rate_(wage_rate), hours_(hours) {
-  // deliberately empty
-}
+  : Employee(name), wage_rate_(wage_rate), hours_(hours) {}
  
 void HourlyEmployee::set_rate(double wage_rate) {
   wage_rate_ = wage_rate;
@@ -35,3 +31,8 @@ void HourlyEmployee::print_check() const {
   cout << get_name() <<':'<< fixed << setprecision(2) 
        << "HE(" << hours_ << ',' << wage_rate_ << ")=" <<  get_net_pay();
 }
+
+void HourlyEmployee::calculate_net_pay() {
+  set_net_pay(hours_ * wage_rate_);
+}
+
